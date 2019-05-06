@@ -19,8 +19,12 @@ function saveForm(payload) {
   // return form.save();
   return new Promise(async (resolve, reject) => {
     const form = new Form(payload);
-    form.save(function(error, newForm) {
-      console.log('Error:', error, '\nnewForm:', newForm);
+    form.save(function(error) {
+      if (error) {
+        reject(error);
+        return 0;
+      }
+      resolve(form);
     });
   });
 }
