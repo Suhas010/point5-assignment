@@ -1,7 +1,6 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-bitwise */
-import { getItem, isExist } from '../components/helpers/localStorage';
 
 export function isValidEmail(email = '') {
   if (!email) return false;
@@ -36,26 +35,6 @@ export function getUUID() {
     return (c == 'x' ? r : (r & 0x3) | 0x8).toString(16);
   });
   return uuid;
-}
-
-export function getIDOf(key, name) {
-  return JSON.parse(getItem(key)).find(item => item.name === name).value;
-}
-
-export function getConfigFor(key) {
-  if (isExist(key)) {
-    return JSON.parse(getItem(key));
-  }
-  return [];
-}
-
-export function getMobileNumber(number, dialCode) {
-  let mobileNumber = number.replace(`+${dialCode}`, '').trim();
-  mobileNumber = mobileNumber.replace(' ', '');
-  mobileNumber = mobileNumber.replace('-', '');
-  mobileNumber = mobileNumber.replace('(', '');
-  mobileNumber = mobileNumber.replace(')', '');
-  return mobileNumber;
 }
 
 export function sort(array, key) {

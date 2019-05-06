@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 import { showFailureNotification, showWarningNotification } from '../reusable/Notifications';
 import { getItem, setItem } from './localStorage';
-import routes from '../../utils/routes';
 const BASE_URL = 'http://localhost:3000/api/'
 export default class RequestHandler {
   // returns header object
@@ -31,7 +30,7 @@ export default class RequestHandler {
     if (status === 401) {
       showWarningNotification('Unauthorised access.');
       setItem('token', '');
-      window.location.href = routes.root;
+      window.location.href = '/';
     }
     if (!(status === 200 || status === 201)) {
       showFailureNotification(payload.message);

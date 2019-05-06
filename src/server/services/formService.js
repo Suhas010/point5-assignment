@@ -13,15 +13,14 @@ function getForms(payload) {
 }
 
 function saveForm(payload) {
-  return new Promise((resolve, reject) => {
+  console.log(payload);
+  const form = new Form(payload);
+  console.log(typeof form.save());
+  // return form.save();
+  return new Promise(async (resolve, reject) => {
     const form = new Form(payload);
-    form.save((error, newFrom) => {
-      if (!error) {
-        resolve(newFrom);
-        return 0;
-      }
-      reject(error);
-      return 0;
+    form.save(function(error, newForm) {
+      console.log('Error:', error, '\nnewForm:', newForm);
     });
   });
 }

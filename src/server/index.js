@@ -2,6 +2,7 @@ const DBURI = 'mongodb://admin:admin0101@ds151626.mlab.com:51626/pointfive';
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const blueBird = require('bluebird');
 
 const app = express();
 app.use(bodyParser.json());
@@ -22,6 +23,7 @@ mongoose
   .catch((error) => {
     console.error('Error connecting to :', DBURI, '\n', error);
   });
+mongoose.Promise = blueBird;
 
 app.use(ROUTES.FROM, Form);
 

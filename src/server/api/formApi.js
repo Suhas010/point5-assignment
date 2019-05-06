@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
   try {
     const data = req.body;
     const saveData = await FormService.saveForm({
-      data: JSON.stringify(data.task_data),
+      form: JSON.stringify(data.task_data),
       name: 'Test'
     });
 

@@ -2,23 +2,26 @@ const mongoose = require('mongoose');
 const shortid = require('shortid');
 
 const schemaOptions = {
-  timestamps: true,
+    timestamps: true,
+    toJSON: {
+        virtuals: true
+    }
 };
 
 const formSchema = new mongoose.Schema({
-  id: String,
-  name: String,
-  data: String,
+    id: String,
+    name: String,
+    form: String
 }, schemaOptions);
 
 formSchema.pre('save', function (next) {
-  const form = this;
+    const form = this;
 
-  if (!form.id) {
-    form.id = shortid.generate();
-  }
+    if (!form.id) {
+        form.id = shortid.generate() + shortid.generate();
+    }
 });
 
-const form = mongoose.model('Form', formSchema);
+const Form = mongoose.model('Form', formSchema);
 
-module.exports = form;
+module.exports = Form;
