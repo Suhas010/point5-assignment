@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+
+
+.App {
+  color: rgb(105, 102, 102);
+  font-family: 'Roboto', sans-serif;
+  .online {
+    margin: 0px 22%;
+    background: #f0f2f5;
+    position: fixed;
+    left: 15%;
+    width: 32%;
+    z-index: 1111;
+  }
+  .no-match-container {
+    display: flex;
+    justify-content: center;
+    margin: 10% 1px;
+    font-size: 14px;
+    height: 100px;
+    width: 100%;
+    color: #9e9a94;
+  }
+
+  .header {
+    font-size: 18px;
+    justify-content: center;
+    padding-bottom: 0px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+}
+.error {
+  font-size: 11px;
+  color: red;
+}
+
+.label {
+  padding-bottom: 3px;
+  color:#656060 !important;
+}
+.ant-layout-content {
+  background-color: #f0f2f5 !important;
+}
+
+.select-error {
+  .ant-select-selection {
+    border-color: red; 
+  }
+}
+
+.react-tel-input{
+  .form-control{
+    width: 100% !important;
+  }
+}
+
+.j-label {
+  display: flex;
+  top: -11%;
+  color: rgb(51, 51, 51);
+  font-size: 14px;
+  width: 192px;
+  font-weight: 500;
+}
+
+.filter-label {
+  display: flex;
+  top: -11%;
+  color: rgb(107, 99, 99);
+  font-size: 12px;
+  width: 192px;
+  // letter-spacing: 2px
+}
+
+.ag-paging-row-summary-panel {
+  display: none !important;
+
+}
+.ag-paging-page-summary-panel{
+  display: none !important;
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
