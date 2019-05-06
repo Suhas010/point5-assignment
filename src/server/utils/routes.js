@@ -1,5 +1,5 @@
 const ROUTES = {
-  USER: '/api/user',
+  FROM: '/api/forms',
 
 };
 

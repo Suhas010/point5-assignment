@@ -2,7 +2,7 @@
 import { showFailureNotification, showWarningNotification } from '../reusable/Notifications';
 import { getItem, setItem } from './localStorage';
 import routes from '../../utils/routes';
-
+const BASE_URL = 'http://localhost:3000/api/'
 export default class RequestHandler {
   // returns header object
   static getHeader(type, data = {}, isFile = false) {
@@ -43,7 +43,7 @@ export default class RequestHandler {
   // HTTP Method get
   static get(action, params = '') {
     return new Promise((resolve, reject) => {
-      fetch(`${QUESTION_BANK_API}${action}${params}`, RequestHandler.getHeader('get'))
+      fetch(`${BASE_URL}${action}${params}`, RequestHandler.getHeader('get'))
         .then(response => ({ promise: response.json(), status: response.status }))
         .then(({ promise, status }) => {
           promise.then((payload) => {
@@ -63,7 +63,7 @@ export default class RequestHandler {
   // HTTP Method post
   static post(action, data, isFile = false) {
     return new Promise((resolve, reject) => {
-      fetch(`${QUESTION_BANK_API}${action}`, RequestHandler.getHeader('post', data, isFile))
+      fetch(`${BASE_URL}${action}`, RequestHandler.getHeader('post', data, isFile))
         .then(response => ({ promise: response.json(), status: response.status }))
         .then(({ promise, status }) => {
           promise.then((payload) => {
@@ -83,7 +83,7 @@ export default class RequestHandler {
   // HTTP Method put
   static put(action, data, isFile = false) {
     return new Promise((resolve, reject) => {
-      fetch(`${QUESTION_BANK_API}${action}`, RequestHandler.getHeader('put', data, isFile))
+      fetch(`${BASE_URL}${action}`, RequestHandler.getHeader('put', data, isFile))
         .then(response => ({ promise: response.json(), status: response.status }))
         .then(({ promise, status }) => {
           promise.then((payload) => {
@@ -103,7 +103,7 @@ export default class RequestHandler {
   // HTTP Method delete
   static delete(action) {
     return new Promise((resolve, reject) => {
-      fetch(`${QUESTION_BANK_API}${action}`, RequestHandler.getHeader('delete', {}))
+      fetch(`${BASE_URL}${action}`, RequestHandler.getHeader('delete', {}))
         .then(response => ({ promise: response.json(), status: response.status }))
         .then(({ promise, status }) => {
           promise.then((payload) => {
