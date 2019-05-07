@@ -18,9 +18,7 @@ router.post('/', async (req, res) => {
   console.log("post");
   try {
     const data = req.body;
-    
     const saveData = await FormService.saveForm(data);
-
     res.status(200).json(saveData);
   } catch (error) {
     console.error(error);
