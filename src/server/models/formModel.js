@@ -11,7 +11,7 @@ const schemaOptions = {
 const formSchema = new mongoose.Schema({
     id: String,
     name: String,
-    form: String
+    form: Array,
 }, schemaOptions);
 
 formSchema.pre('save', function (next) {

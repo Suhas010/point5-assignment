@@ -23,7 +23,7 @@ mongoose
   .catch((error) => {
     console.error('Error connecting to :', DBURI, '\n', error);
   });
-mongoose.Promise = blueBird;
+// mongoose.Promise = blueBird;
 
 app.use(ROUTES.FROM, Form);
 
